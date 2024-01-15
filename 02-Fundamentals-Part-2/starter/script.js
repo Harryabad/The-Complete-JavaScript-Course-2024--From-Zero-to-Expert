@@ -142,6 +142,7 @@ console.log(typeof checkWinner);
 console.log(checkWinner());
 */
 
+/*
 const friend1 = 'Mchael';
 const friend2 = 'Steven';
 const friend3 = 'Peter';
@@ -181,3 +182,57 @@ console.log(age1, age2, age3);
 
 const ages = [CalcAge(years[0]), CalcAge(years[1]), CalcAge(years[years.length - 1])];
 console.log(ages);
+*/
+
+/*
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+// add elements
+const newLength = friends.push('Jay'); // add last
+console.log(friends);
+console.log(newLength);
+
+friends.unshift('John'); //add first
+console.log(friends);
+
+//remove elements
+
+friends.pop(); // remove last
+const popped = friends.pop(); // returns removed ele
+console.log(friends);
+console.log(popped);
+
+friends.shift(); //remove first
+console.log(friends);
+
+console.log(friends.indexOf('Steven'));
+console.log(friends.indexOf('Bob'));  // -1
+
+friends.push(23);
+console.log(friends.includes('Steven')); // Returns T
+console.log(friends.includes('Bob')); // Returns F
+console.log(friends.includes('23')); // Returns F
+
+if (friends.includes('Steven')) {
+    console.log('You have a friend called Steven');
+}
+*/
+
+/// CODING CHALLENEGE SIX
+
+//from CC4 
+const calcTip = function calcTip(bill) {
+    return bill >= 50 && bill <= 300 ? Number(bill * .15) : Number(bill * .2);
+}
+
+console.log(calcTip(100));
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+console.log(bills.tips);
+
+
+const totals = [(bills[0] + tips[0]), (bills[1] + tips[1]), (bills[2] + tips[2])];
+console.log(totals);
+
