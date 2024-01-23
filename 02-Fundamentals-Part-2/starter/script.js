@@ -327,6 +327,7 @@ console.log(jonas.getSummary());
 
 // CODING CHALLENGE SEVEN
 
+/*
 const mark = {
     fullName: 'Mark Miller',
     mass: 78,
@@ -355,4 +356,125 @@ if (mark.bmi > john.bmi) {
     console.log(`${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})!`);
 } else if (john.bmi > mark.bmi) {
     console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s ${mark.bmi}!`);
-} 
+}
+*/
+
+/*
+//console.log('Lifting weights repetition 1 😀');
+
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep}`);
+}
+*/
+
+/*
+const jonas = [
+    'Jonas',
+    "Schmedtmann",
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven']
+];
+
+const types = [];
+
+for (let i = 0; i < jonas.length; i++) {
+    // reading from array
+    console.log(jonas[i], typeof jonas[i]);
+
+    // filling array
+    //types[i] = typeof jonas[i];
+    types.push(typeof jonas[i]);
+}
+
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+    ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+console.log('---')
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] !== 'string') continue;
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+console.log('---')
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] === 'number') break;
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+*/
+/*
+const jonas = [
+    'Jonas',
+    "Schmedtmann",
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven']
+];
+
+for (let i = jonas.length - 1; i >= 0; i--) {
+    console.log(i, jonas[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+    console.log(`--- Starting exercise ${exercise} ---`);
+    for (let rep = 1; rep <= 5; rep++) {
+        console.log(`Lifting weight repetition ${rep}`);
+    }
+}
+*/
+/*
+
+let rep = 1;
+while (rep <= 10) {
+    //console.log(`Rep number ${rep}`);
+    rep++;
+}
+
+// Math.random() return a number between 0 and 1
+// Math.trunc rounds to a whole number
+let dice = Math.trunc(Math.random() * 6) + 1;
+//console.log(dice);
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) {
+        console.log('Loop is about to end...');
+    }
+}
+*/
+
+/// CODING CHALLENGE EIGHt
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i = 0; i <= bills.length - 1; i++) {
+    tips.push(calcTip(bills[i]));
+    totals.push(bills[i] + calcTip(bills[i]));
+}
+console.log(tips);
+console.log(totals);
+
+let sum = 0;
+const calcAverage = function (arr) {
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum / arr.length
+}
+
+console.log(calcAverage(totals))
