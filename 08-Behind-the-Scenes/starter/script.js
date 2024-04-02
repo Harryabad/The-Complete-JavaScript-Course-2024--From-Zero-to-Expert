@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 function calAge(birthYear) {
   const age = 2037 - birthYear;
   //console.log(firstName);
@@ -39,3 +40,53 @@ const firstName = 'Harry';
 calAge(1994);
 // console.log(age); not in scope cannot access
 // nor can we call printAge(); here
+*/
+
+/*
+console.log(me); // undefined (hoisted to undefined)
+console.log(job); // temrporal dead zone
+console.log(year); // temporal dead zone
+*/
+
+var me = 'Harry';
+let job = 'Teacher';
+const year = 1994;
+
+/*
+// Functions
+console.log(addDecl(2, 3)); // works
+console.log(addExpr(2, 3)); // temporal dead zone as defined with const
+console.log(addArrow(2, 3)); // temporal dead zone as defined with const
+console.log(addArrow2(2, 3)); // hoisted to undefined and throws not a function error
+
+function addDecl(a, b) {
+  return a + b;
+}
+
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+const addArrow = (a, b) => a + b;
+
+var addArrow2 = (a, b) => a + b;
+*/
+// Example
+if (!numProducts) deleteShoppingCart();
+
+var numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+  // still prints even though numProducts is 10.  Because it not 10 but undefined.
+}
+
+var x = 1; // appears in window
+
+let y = 2;
+const z = 3;
+// let and const do not appear in the windows object property
+
+console.log(x === window.x);
+console.log(x === window.y);
+console.log(x === window.z);
