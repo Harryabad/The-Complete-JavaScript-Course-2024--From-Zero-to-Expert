@@ -71,6 +71,8 @@ const addArrow = (a, b) => a + b;
 
 var addArrow2 = (a, b) => a + b;
 */
+
+/*
 // Example
 if (!numProducts) deleteShoppingCart();
 
@@ -90,3 +92,97 @@ const z = 3;
 console.log(x === window.x);
 console.log(x === window.y);
 console.log(x === window.z);
+*/
+
+/*
+// this keyword
+
+//console.log(this);
+
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+calcAge(1994);
+
+const calcAgeArrow = birthYear => {
+  console.log(2037 - birthYear);
+  //console.log(this);
+};
+calcAgeArrow(1984);
+
+const harry = {
+  year: 1993,
+  calcAge: function () {
+    console.log(this);
+    console.log(2037 - this.year);
+  },
+};
+harry.calcAge(); // object harry is owner of calcAge function
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = harry.calcAge; // method borrowing
+matilda.calcAge();
+
+const f = harry.calcAge;
+f(); // no owner of function anymore so undefined
+*/
+
+// Regular vs Arrow Functions
+
+// object literal does not have their own scope. still in global scope which is the window object
+
+var firstName = 'Matilda'; // created properties on the global object so will work for the greet() function
+
+const harry = {
+  firstName: 'harry', // not a property on the global object
+  year: 1993,
+  calcAge: function () {
+    //console.log(this);
+    console.log(2037 - this.year);
+
+    // SOLUTION 1
+    // self = this; // self or that
+    // const isMillenial = function () {
+    //   console.log(this); //regular function has this set to undefined
+    //   console.log(self.year >= 1931 && self.year <= 1996);
+    //   console.log(this.year >= 1931 && this.year <= 1996);
+    // };
+
+    //SOLUTION 2 - works as arrow function does not have its own this keyword. it borrows from the parent scope. this is harry
+    const isMillenial = () => {
+      console.log(this); //regular function has this set to undefined
+      console.log(this.year >= 1931 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+
+  greet: () => console.log(`Hey ${this.firstName}`), //Matilda
+
+  greet2: function () {
+    console.log(`Hey ${this.firstName}`); //Harry
+  },
+};
+
+harry.greet(); // undefined as arrow functions do not get their own this keyword
+// dont use arrow functions as methods
+harry.greet2();
+
+harry.calcAge();
+
+//Arugments keyword, exists but only in regular functions.
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow(2, 5, 8, 12); // arguments undefined
