@@ -48,9 +48,11 @@ console.log(job); // temrporal dead zone
 console.log(year); // temporal dead zone
 */
 
+/*
 var me = 'Harry';
 let job = 'Teacher';
 const year = 1994;
+*/
 
 /*
 // Functions
@@ -131,6 +133,7 @@ const f = harry.calcAge;
 f(); // no owner of function anymore so undefined
 */
 
+/*
 // Regular vs Arrow Functions
 
 // object literal does not have their own scope. still in global scope which is the window object
@@ -186,3 +189,62 @@ var addArrow = (a, b) => {
   return a + b;
 };
 addArrow(2, 5, 8, 12); // arguments undefined
+
+*/
+
+// PRIMATIVES VS OBJECTS
+
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me = {
+  name: 'Harry',
+  age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+
+console.log('Friend: ', friend);
+console.log('Me: ', me);
+
+//Primative types
+let lastName = 'Willaims';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+//Reference Types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+
+const marriedJessica = jessica;
+// not a new object in heap, just a new variable in the stack that holds reference to memory address
+marriedJessica.lastName = 'Davis';
+console.log('Before Marriage: ', jessica);
+console.log('After Marriage: ', marriedJessica);
+
+// Copying Objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Allice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2); // not a deep clone, see arrays
+jessicaCopy.lastName = 'Davis';
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before Marriage: ', jessica2);
+console.log('After Marriage: ', jessicaCopy); // both get the updated lists
+
+// for a real clone look up library called lodash
