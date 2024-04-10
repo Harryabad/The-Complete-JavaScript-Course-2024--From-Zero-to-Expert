@@ -20,6 +20,10 @@ const restaurant = {
     console.log(`Order receiverd: ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
   },
 
+  oderPasta: function(ing1, ing2, ing3){
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`)
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -36,6 +40,51 @@ const restaurant = {
   },
 };
 
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArray = [1, 2, ...arr];
+console.log(newArray);
+console.log(...newArray);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+const mainMenuCopy = [...restaurant.mainMenu]; //shallow copy
+
+// Join 2 arrays
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+//iterables are arrays strings, maps, sets. NOT Objects
+const str = 'Harry';
+const letters = [...str, ' ', 's.'];
+console.log(letters);
+//console.log(`${...str} is my name`); //ERROR does not expect multiple values separated by a comma
+
+//real world example
+//const ingredients = [prompt('Let\'s make pasta! Igredient 1?'), prompt('Ingredient 2?'), prompt('Ingredient 3?')]
+//restaurant.oderPasta(...ingredients);
+
+//Objects
+const newRestaurant = {FoundedIn: 1998, ...restaurant, founder:'Guiseppe'}
+console.log(newRestaurant);
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+
+
+
+
+
+
+
+
+/* 105. Destructuring Objects
 restaurant.orderDelivery({
   time: '22:30',
   address: 'via del dole, 21',
@@ -70,8 +119,9 @@ console.log(a,b);
 //nested objects
 const {fri: {open: o, close: c}} = openingHours;
 console.log(o, c);
+*/
 
-/*
+/* 103
 //Destructuring Arrays
 const arr = [2, 3, 4];
 
