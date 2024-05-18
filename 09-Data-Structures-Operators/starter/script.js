@@ -31,21 +31,64 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function({starterIndex = 1, mainIndex = 0, time = '20:00', address}){
-    console.log(`Order receiverd: ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order receiverd: ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
   },
 
-  oderPasta: function(ing1, ing2, ing3){
-    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`)
+  oderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
   },
 
-  orderPizza: function(mainIngredient, ...otherIngredients){
+  orderPizza: function (mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
-
 };
 
+/*
+// 108.Short Circuiting
+
+console.log('---- OR ----');
+// Use ANY data type, return ANY data type, short-circuiting (returns truthy value - if all falsey the last one)
+console.log(3 || 'Harry'); // 3
+console.log('' || 'harry'); // harry
+console.log(true || 0); // true
+console.log(undefined || null); // null
+
+console.log(undefined || 0 || '' || 'hello' || 23 || null);
+
+restaurant.numGuests = 23; // does not work if 0 as falsey and looks for second result in operation.
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('---- AND ----');
+// works in opposite way to || operator. Returns first falsey operator
+console.log(0 && 'Harry');
+console.log('7' && 'Harry');
+
+console.log('Hello' && 23 && null && 'Harry');
+
+// practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('Mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+*/
+
+/* 107 REST PATTERN 
 // Destructuring
 
 // SPREAD, because on righthand side of assignment operator
@@ -85,7 +128,7 @@ add(...x);
 
 restaurant.orderPizza('Mushrooms', 'Olives', 'Onions', 'Pepper');
 restaurant.orderPizza('Mushrooms');
-
+*/
 
 /*
 //////////////////
@@ -128,12 +171,6 @@ console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
 */
-
-
-
-
-
-
 
 /* 105. Destructuring Objects
 restaurant.orderDelivery({
